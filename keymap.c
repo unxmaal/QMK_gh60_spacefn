@@ -8,17 +8,17 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    /*
-   *  Base layer, pretty standard ANSI layout.
+   *  ANSI Base, Mac style
    * ,-----------------------------------------------------------.
-   * |F(12)| 1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backsp |
+   * |Esc | 1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backsp |
    * |-----------------------------------------------------------|
    * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|    \|
    * |-----------------------------------------------------------|
-   * |Caps/Fn|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Return |
+   * |Caps/Fn|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Enter  |
    * |-----------------------------------------------------------|
    * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift     |
    * |-----------------------------------------------------------|
-   * |Ctrl|Gui |Alt |      Space             |Alt |Fn  |Menu|Ctrl|
+   * |Fn|Alt |Gui | Space(tapped), Fn(held) |Gui |Alt  |Menu(tapped, Fn2(held)|Ctrl|
    * `-----------------------------------------------------------'
    */
 	[_BL] = KEYMAP(
@@ -26,16 +26,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	      KC_TAB,KC_Q,KC_W,KC_E,KC_R,KC_T,KC_Y,KC_U,KC_I,KC_O,KC_P,KC_LBRC,KC_RBRC,KC_BSLS, \
         KC_LCTL,KC_A,KC_S,KC_D,KC_F,KC_G,KC_H,KC_J,KC_K,KC_L,KC_SCLN,KC_QUOT,KC_NO,KC_ENT,  \
         KC_LSFT,KC_NO,KC_Z,KC_X,KC_C,KC_V,KC_B,KC_N,KC_M,KC_COMM,KC_DOT,KC_SLSH,KC_NO,KC_RSFT, \
-        MO(1),KC_LALT,KC_LGUI,        LT(1,KC_SPACE),      KC_NO, KC_RGUI, KC_RALT, KC_MENU, KC_RCTL),
+        MO(1),KC_LALT,KC_LGUI,        LT(1,KC_SPACE),      KC_NO, KC_RGUI, KC_RALT, LT(2,KC_MENU), KC_RCTL),
 
    /*
-   * Locking arrow keys to WASD for when you need dedicated arrow keys
+   * Pok3r style arrow cluster
    * ,-----------------------------------------------------------.
-   * |    |  |   |   |   |   |   |   |   |   |   |   |   |       |
+   * |`~ | F1| F2| F3| F4| F5| F6| F7| F8| F9| F10| F11| F12|DEL |
    * |-----------------------------------------------------------|
-   * |     |   |Up |   |   |   |   |   |   |   |   |   |   |     |
+   * |     |   |    |   |   |   |   |   |Up|   |   |   |   |     |
    * |-----------------------------------------------------------|
-   * |       |Left|Down|Rght|   |   |   |   |   |   |   |   |    |
+   * |       |   |   |   |   |   |   |Left|Down|Right|   |   |   |
    * |-----------------------------------------------------------|
    * |        |   |   |   |   |   |   |   |   |   |   |          |
    * |-----------------------------------------------------------|
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-----------------------------------------------------------'
    */
 	[_AL] = KEYMAP(
-        KC_GRV,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,RESET, \
+        KC_GRV,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,KC_F6,KC_F7,KC_F8,KC_F9,KC_F10,KC_F11,KC_F12,KC_DELETE, \
         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_UP,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, \
         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_LEFT,KC_DOWN,KC_RGHT,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, \
         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   \
@@ -51,24 +51,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
    /*
-   * Primary function layer, mostly the same as the traditional Pok3r layout.
+   * Secondary function layer
    * ,-------------------------------------------------------------.
-   * |`~ | F1| F2| F3| F4| F5| F6| F7| F8| F9| F10| F11| F12|DEL   |
+   * | | |  |  |  | | | RW|Play|FF| Mute| Vol Down | Vol up |Reset |
    * |-------------------------------------------------------------|
-   * |    |_AL|   |   |  |  |Calc|PgUp|Up|PgDn|Ptscn|Srlck|Pause|  |
+   * |    |   |   |   |  |  |  |   |    |PgUp|    |    |   |       |
    * |-------------------------------------------------------------|
-   * |      |   |   |   |   |   |Home|Left|Down|Rght|Ins|   |      |
+   * |      |   |   |   |   |   |  |Home|PgDown|End|  |   |        |
    * |-------------------------------------------------------------|
-   * |        |_UL|   |   |   |   |   |    |    |    |   |         |
+   * |        |   |   |   |   |   |   |    |    |    |   |         |
    * |-------------------------------------------------------------|
    * |    |    |    |                          |    |    |    |    |
    * `-------------------------------------------------------------'
    */
 	[_FL] = KEYMAP(
-        KC_GRAVE,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,KC_F6,KC_F7,KC_F8,KC_F9,KC_F10,KC_F11,KC_F12,KC_DELETE, \
-        KC_TRNS,F(1),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_CALC,KC_PGUP,KC_UP,KC_PGDN,KC_PSCR,KC_SLCK,KC_PAUS,KC_TRNS, \
-        KC_TRNS,KC_MUTE,KC__VOLDOWN,KC__VOLUP,KC_TRNS,KC_TRNS,KC_HOME,KC_LEFT,KC_DOWN,KC_RGHT,KC_INS,KC_TRNS,KC_TRNS,KC_TRNS, \
-        KC_TRNS,KC_TRNS,F(3),KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_END,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, \
+        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_MPRV,KC_MPLY,KC_MNXT,KC_MUTE,KC_VOLD,KC_VOLU,RESET, \
+        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_PGUP,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, \
+        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_HOME,KC_TRNS,KC_HOME,KC_PGDN,KC_END,KC_TRNS,KC_TRNS,KC_TRNS, \
+        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, \
         KC_TRNS,KC_TRNS,KC_TRNS,          KC_TRNS,               KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS),
 
    /*
