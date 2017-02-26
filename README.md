@@ -1,16 +1,20 @@
-robotmaxtron's GH60 Layout
+Unxmaal's GH60 Layout
 =====================
+* Mostly stolen from /u/robotmaxtron
 
 ##Quantum MK Firmware
 For the full Quantum feature list, see the parent readme.md.
 
-* Standard ANSI layout with Pok3r styled function layers
-* ESC key led enables when on function layer
-* Lockable layer with arrow keys on WASD with backlighting to indicate locked on arrow layer
-* Neopixel/WS2812 RGB Underglow Support
-
-## Reference Images
-![Wiring Refererence] (WS2812-wiring.jpg)
+* Standard Mac ANSI layout
+* Spacebar acts as space when tapped, Fn when held
+* Menu acts as menu when tapped, Fn2 when held
+* Layer1:
+  * Top row = `~, F1-F12, Del
+  * JKIL = arrow cluster
+* Layer2:
+  * Top row = media controls
+  * JKIL = PgDn/Up/Home/Insert
+  * Backspace = Reset
 
 ### Additional Credits
 Keymap has been based on various keymaps available from the QMK Repo for the GH60-SATAN and KC60 keyboards.
